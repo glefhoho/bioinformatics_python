@@ -1,0 +1,2 @@
+""" This script is used for extracting -outfmt 6 blast results with <= N mismatches. """
+Paras = 

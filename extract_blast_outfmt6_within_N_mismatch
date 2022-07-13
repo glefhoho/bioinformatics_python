@@ -3,4 +3,5 @@
 # History
 # 2022/7/13				GLEF				1st Ver
 
-
+import time, sys, os
+from Bio import SeqIO

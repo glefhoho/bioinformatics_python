@@ -15,7 +15,7 @@ while True:
         N = parameters.split(' ')[2]
 
         f1 = open(name2, 'r') # open blast result 
-        f2 = open(Mismatch<=+N+'_'+name2, 'w')
+        f2 = open('Mismatch<='+N+'_'+name2, 'w')
 
         a = {}
         for record in SeqIO.parse(name1, 'fasta'):

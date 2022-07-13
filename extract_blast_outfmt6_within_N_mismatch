@@ -5,3 +5,53 @@
 
 import time, sys, os
 from Bio import SeqIO
+
+parameters = input("Enter three parameters: Your_query_fasta, Your_query_blast.txt, and Mismatch_number_N (Separated by space)")
+
+while True:
+    try:
+        name1 = parameters.split(' ')[0] # .fasta
+        name2 = parameters.split(' ')[1] # .blast result in -outfmt6
+        N = parameters.split(' ')[2]
+
+        f1 = open(name2, 'r') # open blast result 
+        f2 = open(Mismatch<=+N+'_'+name2, 'w')
+
+        a = {}
+        for record in SeqIO.parse(name1, 'fasta'):
+            a[str(record.id)] = len(record.seq)
+            break
+    except:
+        print ('Invalid input format')
+        parameters = input("Enter three parameters: Your_query_fasta, Your_query_blast.txt, and Mismatch_number_N (Separated by space)")
+
+start = time.time() # record program begins time
+wrerr = sys.stderr.write
+
+for line in f1:
+    id = line.split('\t')[0]
+    alignment_length = int(line.split('\t')[3])
+    mismatch_num = int(line.split('\t')[4])
+    q_start = int(line.split('\t')[6])
+    q_end = int(line.split('\t')[7])
+    gap_open_num = int(line.split('\t')[5])
+
+    if a[id] - int(N) == alignment_length and mismatch_num == 0 and gap_open_num == 0:
+        f2.write(line)
+    if a[id] - int(N) < alignment_length < a[id] + int(N) and mismatch_number + gap_open_num <= int(N):
+        f2.write(line)
+    if a [id] + int(N) == alignment_length and mismatch_num == 0 and gap_open_num == int(N):
+        f2.write(line)
+    else:
+        continue
+    
+end = time.time() # time finished
+wrerr = ("Done in %3.2f seconds \n" % (end - start))
+
+f1.close()
+f2.close()
+
+
+
+
+

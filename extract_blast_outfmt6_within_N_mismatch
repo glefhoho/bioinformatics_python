@@ -1,2 +1,6 @@
-""" This script is used for extracting -outfmt 6 blast results with <= N mismatches. """
-Paras = 
+#	Program
+#				This script extracts -outfmt6 blast results with <= N mismatches
+# History
+# 2022/7/13				GLEF				1st Ver
+
+

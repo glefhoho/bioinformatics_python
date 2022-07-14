@@ -1,1 +1,58 @@
+#	Program
+#				This script extracts top N hits
+# History
+# 2022/7/14				GLEF				1st Ver
+
+import os
+import time, sys
+
+parameters = input('Enter two parameters: file, N, which are separated by space!!!')
+
+while True:
+    try:
+        file = parameters.split(' ')[0]
+        N = parameters.split(' ')[1]
+        if not os.path.exists(file):
+            file = input('Invalid file, please reenter')
+        break
+    except:
+        parameters = input('Enter two parameters: file, line_number')
+
+f1 = open(file, 'r')
+f2 = open('Top_'+N+'_of_'+file, 'w')
+
+a = []
+i = 0
+j = 0
+
+while True:
+    start = time.time()
+    wrerr = sys.stderr.write
+    i += 1
+    j += 1
+
+    b = f1.readline()
+    if a.count(b.split('\t')[0])<int(N):
+        a.append(b.split('\t')[0])
+        f2.write(b)
+
+
+    c = f1.readline()
+    if len(c) == 0:
+        break
+    if a.count(c.split('\t')[0])<int(N):
+        f2.write(c)
+        a.append(c.split('\t')[0])
+
+    else:
+        continue
+    
+    if i % 5000 == 0:
+        a = []
+        a.append(c.split('\t')[0])
+    if j % 100000 == 0:
+        end = time.time()
+        wrerr('100000 sequences in %3.2f seconds\n' % (end - start))
+
+print ('Finished!')
 

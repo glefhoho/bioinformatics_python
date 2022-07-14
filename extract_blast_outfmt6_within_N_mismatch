@@ -6,7 +6,7 @@
 import time, sys, os
 from Bio import SeqIO
 
-parameters = input("Enter three parameters: Your_query_fasta, Your_query_blast.txt, and Mismatch_number_N (Separated by space)")
+parameters = input("Enter three parameters: Your_query_fasta, Your_query_blast.txt, and Mismatch_number_N (Separated by space!!!)")
 
 while True:
     try:
@@ -23,7 +23,7 @@ while True:
             break
     except:
         print ('Invalid input format')
-        parameters = input("Enter three parameters: Your_query_fasta, Your_query_blast.txt, and Mismatch_number_N (Separated by space)")
+        parameters = input("Enter three parameters: Your_query_fasta, Your_query_blast.txt, and Mismatch_number_N (Separated by space!!!)")
 
 start = time.time() # record program begins time
 wrerr = sys.stderr.write

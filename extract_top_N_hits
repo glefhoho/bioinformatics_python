@@ -6,17 +6,17 @@
 import os
 import time, sys
 
-parameters = input('Enter two parameters: file, N, which are separated by space!!!' )
+parameters = input('Enter two parameters: file, N, which are separated by space!!! ')
 
 while True:
     try:
         file = parameters.split(' ')[0]
         N = parameters.split(' ')[1]
         if not os.path.exists(file):
-            file = input('Invalid file, please reenter' )
+            file = input('Invalid file, please reenter ')
         break
     except:
-        parameters = input('Enter two parameters: file, line_number' )
+        parameters = input('Enter two parameters: file, line_number ')
 
 f1 = open(file, 'r')
 f2 = open('Top_'+N+'_of_'+file, 'w')

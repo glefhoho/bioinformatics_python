@@ -1,1 +1,23 @@
+#	Program
+#				This script extracts first N bp from a .fa file
+# History
+# 2022/7/15				GLEF				1st Ver
+
+parameters = input('Enter two parameters: fasta_file, N, which are separated by space ')
+
+while True:
+    try:
+        filename = parameters.split(' ')[0]
+        N = parameters.split(' ')[1]
+        break
+    except:
+        parameters = input('Enter two parameters: fasta_file, N, which are separated by space ')
+
+f = open('First_'+N+filename, 'w')
+
+from Bio import SeqIO
+for record in SeqIO.parse(filename, 'fasta'):
+    f.write('>'+str(record.id)+'\n')
+    f.write(str(record.seq)[:int(N)]+'\n')
+print 'Finished!'
 
